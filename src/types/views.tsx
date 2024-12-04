@@ -1,8 +1,11 @@
 import React from "react";
 import { Field, FormUnitType } from "./types"
+import DatenschutzText from "../components/units/DatenschutzText";
+import BestaetigungText from "../components/units/BestaetigungText";
 
 export interface ViewInterface{
     preText?: JSX.Element,
+    postText?: JSX.Element,
     formSection: string,
     legendTitle: string,
     underLabel: string,
@@ -14,6 +17,7 @@ const formConstruct: ViewInterface[] = [
         formSection: 'Datenschutz',
         legendTitle: 'Datenschutz',
         underLabel: 'Datenschutz',
+        preText: DatenschutzText,
         fields: [
             {
                 label:'Datenspeicherung',
@@ -390,6 +394,7 @@ const formConstruct: ViewInterface[] = [
         formSection: 'Geschafft!',
         legendTitle: 'Bestätigung',
         underLabel: '',
+        postText: BestaetigungText,
         fields: []
     },
 ]

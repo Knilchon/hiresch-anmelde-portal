@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material"
 import React from "react"
 import { styled } from '@mui/system';
-import SchoolLogo from '../../schoolLogo.png'
+import SchoolLogo from '../../Logo.png'
 import { Theme } from "../../utils";
 
 const LogginBanner: React.FC = () => {
@@ -16,8 +16,6 @@ const LogginBanner: React.FC = () => {
             width: '100px'
         }}>
             <CustomImg src={SchoolLogo}></CustomImg>
-            <TypographyCustom>OBERSTUFENZENTRUM</TypographyCustom>
-            <TypographyCustom>GESUNDHEIT/MEDIZIN</TypographyCustom>
         </Box>
         <Typography sx={{
         color: 'white',
@@ -46,7 +44,7 @@ const CustomBox = styled(Box)({
 
 const CustomImg = styled('img')({
     // display: 'inline',
-    height: '70%',
+    height: '100%',
     width: 'auto',
     marginBottom: '2px'
 });

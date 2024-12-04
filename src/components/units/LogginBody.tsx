@@ -37,16 +37,13 @@ const LogginBody: React.FC = () => {
             setIsWarningOn={setIsWarningOn}
             setProgressIndex={setProgressIndex}
             />
-            {/* <BeginningAndEndTextElement/> */}
+            {view.preText}
             <Box sx={{
                 width: '100%'
             }}>
-                <LabelCustom sx={{
-                    color: Theme['darkGray'],
-                    fontSize: '1.5rem',
-                }}
-                >{view.formSection}</LabelCustom>
+                <LabelCustom>{view.formSection}</LabelCustom>
             </Box>
+            {view.postText}
             <LogginForm
                 form={form}
                 view={view}
@@ -63,7 +60,6 @@ const LogginBody: React.FC = () => {
                 arraySize={formConstruct.length}
                 onClick={handleOnClick}
             />
-            <Button onClick={()=>{console.log(form)}}>Test</Button>
         </CustomBox>
     )
 }
@@ -86,5 +82,10 @@ const CustomBox = styled(Box)({
 });
 
 const LabelCustom = styled(Typography)({
-
+    fontFamily: '"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif',
+    fontWeight: 'bold',
+    fontSize: '1.5rem',
+    marginTop: '12px',
+    marginBottom: '12px',
+    color: Theme['darkGray'],
 })

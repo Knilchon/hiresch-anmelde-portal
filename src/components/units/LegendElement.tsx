@@ -26,4 +26,5 @@ export default LegendElement;
 
 const CustomBox = styled(Box)({
     display: "flex",
+    marginBottom: '10px'
 });
