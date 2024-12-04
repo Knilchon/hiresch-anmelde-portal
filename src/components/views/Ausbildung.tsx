@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Field, FormUnitType, ILogginFormProps } from "../../types/types";
 import FormUnit from "../units/FormUnit";
 
@@ -60,7 +60,7 @@ const fields: Field[] = [
         label:'Schultagewunsch 1.Wahl',
         formDataUnit: 'schoolDaysFirst',
         isRequired: false,
-        type: FormUnitType.OptionFields,
+        type: FormUnitType.ArraySelect,
         descriptText: 'Wählen Sie bitte ZWEI TAGE aus, an denen die Praxis Sie für die Berufsschule bevorzugt freistellen möchte.',
         checkOptions: [
             'Montag',
@@ -74,7 +74,7 @@ const fields: Field[] = [
         label:'Schultagewunsch 2.Wahl',
         formDataUnit: 'schoolDaysSecond',
         isRequired: false,
-        type: FormUnitType.OptionFields,
+        type: FormUnitType.ArraySelect,
         descriptText: 'Wählen Sie bitte ZWEI TAGE aus, an denen die Praxis Sie für die Berufsschule bevorzugt freistellen möchte.',
         checkOptions: [
             'Montag',
@@ -87,8 +87,20 @@ const fields: Field[] = [
 ]
 
 const Ausbildung: React.FC<ILogginFormProps> = (props) => {
+
+    const emptyRequiredFields: Field[] = fields
+    .filter((field) => field.isRequired && 
+    (props.form[field.formDataUnit] === '' && field.type === FormUnitType.InputField ||
+    props.form[field.formDataUnit] === false && field.type === FormUnitType.CheckBox ||
+    props.form[field.formDataUnit] === undefined && field.type === FormUnitType.OptionFields)
+    )
+
+    useEffect(()=>{
+        props.setAreRequiredChecked(emptyRequiredFields.length === 0)
+    },[emptyRequiredFields])
+
     return(<>
-        {fields.map((field) => (<FormUnit {...props} {...field} />))}
+        {fields.map((field) => (<FormUnit key={field.formDataUnit} {...props} {...field} />))}
     </>)
 }
 export default Ausbildung;

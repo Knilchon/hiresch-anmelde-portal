@@ -4,12 +4,23 @@ import styled from "styled-components";
 import { Theme } from "../../utils";
 
 interface IProgressElementProps{
-    progressIndex: number,
     arraySize: number
+    progressIndex: number
+    areRequiredChecked: boolean
     onClick: () => void
+    setIsWarningOn: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ProgressElement: React.FC<IProgressElementProps> = ({progressIndex, arraySize, onClick}) => {
+const ProgressElement: React.FC<IProgressElementProps> = ({progressIndex, areRequiredChecked, arraySize, setIsWarningOn, onClick}) => {
+
+    const handleOnClick = () => {
+        if(areRequiredChecked){
+            onClick()
+        }else{
+            setIsWarningOn(true)
+        }
+    }
+
     return(<CustomBox isShown={progressIndex !== arraySize-1}>
         <Typography sx={{
             color: Theme['darkGray'],
@@ -17,7 +28,7 @@ const ProgressElement: React.FC<IProgressElementProps> = ({progressIndex, arrayS
         }}
         >Das ist Seite <strong>{progressIndex+1}</strong> von <strong>{arraySize}</strong>. Bitte füllen sie alle Seiten aus. Klicken Sie auf weiter.
         </Typography>
-        <button onClick={onClick}>Weiter</button>
+        <button onClick={handleOnClick}>Weiter</button>
     </CustomBox>)
 }
 export default ProgressElement;

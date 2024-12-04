@@ -15,18 +15,19 @@ const labels = [
 
 interface ILegendElementProps{
     progressIndex: number,
+    setIsWarningOn: React.Dispatch<React.SetStateAction<boolean>>,
     setProgressIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
-const LegendElement: React.FC<ILegendElementProps> = ({progressIndex, setProgressIndex}) => {
+const LegendElement: React.FC<ILegendElementProps> = (props) => {
     return(
     <CustomBox>
         {labels.map((label,index) => (
         <LegendItem 
+        key={index}
         label={label} 
         index={index}
-        progressIndex={progressIndex}
-        setProgressIndex={setProgressIndex}
+        {...props}
         />))}
     </CustomBox>)
 

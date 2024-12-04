@@ -32,17 +32,19 @@ const views = [
 
 interface ILogginFormProps {
     form: Form
-    progressIndex: number
     arraySize: number
-    updateForm: (obj:object) => void
+    isWarningOn: boolean
+    progressIndex: number
+    updateForm: (obj:object) => void,
+    setAreRequiredChecked: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const LogginForm: React.FC<ILogginFormProps> = ({form, progressIndex, arraySize, updateForm}) => {
+const LogginForm: React.FC<ILogginFormProps> = (props) => {
 
-    const CurrentView = views[progressIndex]
+    const CurrentView = views[props.progressIndex]
 
     return(
-    <CustomBox isShown={progressIndex !== arraySize-1}>
+    <CustomBox isShown={props.progressIndex !== props.arraySize-1}>
         <Box sx={{
             display: "inherit",
             alignItems: "center",
@@ -57,9 +59,10 @@ const LogginForm: React.FC<ILogginFormProps> = ({form, progressIndex, arraySize,
             <Typography sx={{
                 fontSize: '0.7rem'
             }}  
-            >{labels[progressIndex]}</Typography>
+            >{labels[props.progressIndex]}</Typography>
         </Box>
-        {progressIndex < views.length && <CurrentView form={form} updateForm={updateForm}/>}
+        {props.progressIndex < views.length && 
+        <CurrentView {...props}/>}
     </CustomBox>
     )
 }

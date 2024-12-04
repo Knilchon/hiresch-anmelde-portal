@@ -111,21 +111,24 @@ export enum FormUnitType {
     'CheckBox',
     'InputField',
     'OptionFields',
+    'ArraySelect'
 }
 
 export interface Field{
-    label: string,
+    label: string
     formDataUnit: keyof Form
     isRequired: boolean,
     descriptText?: string,
     type: FormUnitType,
     checkOptions?: Enum
-    checkboxDescript?: string
+    checkboxDescript?: string | JSX.Element,
 }
 
 export interface ILogginFormProps {
     form: Form,
-    updateForm: (obj:object) => void
+    isWarningOn: boolean,
+    updateForm: (obj:object) => void,
+    setAreRequiredChecked: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export type Enum = Apprenticship[] | Relation[] | Course[] | EducationLevel[] | Weekday[] | Gender[]

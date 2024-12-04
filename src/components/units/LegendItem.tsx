@@ -7,14 +7,16 @@ interface ILegendItemProps{
     label: string,
     index: number,
     progressIndex: number,
+    setIsWarningOn: React.Dispatch<React.SetStateAction<boolean>>,
     setProgressIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
-const LegendItem: React.FC<ILegendItemProps> = ({label, index, progressIndex, setProgressIndex}) => {
+const LegendItem: React.FC<ILegendItemProps> = ({label, index, progressIndex, setIsWarningOn, setProgressIndex}) => {
 
     const handleOnClick = () => {
         if(index <= progressIndex-1){
             setProgressIndex(index)
+            setIsWarningOn(false)
         }
     }
 

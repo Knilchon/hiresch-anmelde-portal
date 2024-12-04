@@ -19,12 +19,14 @@ const labels = [
 
 const LogginBody: React.FC = () => {
 
-    const [progressIndex, setProgressIndex] = useState(0)
-
+    const [progressIndex, setProgressIndex] = useState<number>(0)
+    const [areRequiredChecked, setAreRequiredChecked ] = useState<boolean>(false)
+    const [isWarningOn, setIsWarningOn] = useState<boolean>(false)
     const [form, setForm] = useState<Form>(defaultForm)
 
     const handleOnClick = () => {
         setProgressIndex((index) => index + 1)
+        setIsWarningOn(false)
     }
 
     const updateForm = (obj: object) => {
@@ -35,6 +37,7 @@ const LogginBody: React.FC = () => {
         <CustomBox>
             <LegendElement 
             progressIndex={progressIndex}
+            setIsWarningOn={setIsWarningOn}
             setProgressIndex={setProgressIndex}
             />
             {/* <BeginningAndEndTextElement/> */}
@@ -51,9 +54,13 @@ const LogginBody: React.FC = () => {
                 form={form}
                 updateForm={updateForm}
                 progressIndex={progressIndex}
+                setAreRequiredChecked={setAreRequiredChecked}
+                isWarningOn={isWarningOn}
                 arraySize={labels.length}
             />
             <ProgressElement
+                setIsWarningOn={setIsWarningOn}
+                areRequiredChecked={areRequiredChecked}
                 progressIndex={progressIndex}
                 arraySize={labels.length}
                 onClick={handleOnClick}
