@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Form, { Field, FormUnitType } from "../../types/types";
-import FormUnit from "../units/FormUnit";
+import FormUnit from "./FormUnit";
 import { ViewInterface } from "../../types/views";
 
 interface ILogginFormProps {

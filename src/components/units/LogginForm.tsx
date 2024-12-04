@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Theme } from "../../utils";
 import Form from "../../types/types";
 
-import View from "../views/View";
+import View from "./View";
 import { ViewInterface } from "../../types/views";
 
 interface ILogginFormProps {
