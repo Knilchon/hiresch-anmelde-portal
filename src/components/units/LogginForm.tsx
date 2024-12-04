@@ -4,35 +4,13 @@ import styled from "styled-components";
 import { Theme } from "../../utils";
 import Form from "../../types/types";
 
-import Datenschutz from "../views/Datenschutz";
-import Persoenliches from "../views/Persoenliches";
-import Wohnort from "../views/Wohnort";
-import Minder from "../views/Minder";
-import Ausbildung from "../views/Ausbildung";
-import Schulbesuch from "../views/Schulbesuch";
-
-const labels = [
-    'Datenschutz',
-    'Persönliche Daten',
-    'Ihre Adresse',
-    'Nur ausfüllen, wenn Sie unter 18 Jahre sind!',
-    'Angaben zu ihrem Ausbildungsbetrieb',
-    'Bisherige Schulbesuche',
-    ''
-]
-
-const views = [
-    Datenschutz,
-    Persoenliches,
-    Wohnort,
-    Minder,
-    Ausbildung,
-    Schulbesuch,
-]
+import View from "../views/View";
+import { ViewInterface } from "../../types/views";
 
 interface ILogginFormProps {
     form: Form
     arraySize: number
+    view: ViewInterface
     isWarningOn: boolean
     progressIndex: number
     updateForm: (obj:object) => void,
@@ -40,8 +18,6 @@ interface ILogginFormProps {
 }
 
 const LogginForm: React.FC<ILogginFormProps> = (props) => {
-
-    const CurrentView = views[props.progressIndex]
 
     return(
     <CustomBox isShown={props.progressIndex !== props.arraySize-1}>
@@ -59,10 +35,9 @@ const LogginForm: React.FC<ILogginFormProps> = (props) => {
             <Typography sx={{
                 fontSize: '0.7rem'
             }}  
-            >{labels[props.progressIndex]}</Typography>
-        </Box>
-        {props.progressIndex < views.length && 
-        <CurrentView {...props}/>}
+            >{props.view.underLabel}</Typography>
+        </Box> 
+        <View {...props}/>
     </CustomBox>
     )
 }

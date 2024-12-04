@@ -1,21 +1,13 @@
 import { Box, Button, Typography } from "@mui/material"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { styled } from '@mui/system';
 import { Theme } from "../../utils";
 import LegendElement from "./LegendElement";
 import LogginForm from "./LogginForm";
 import ProgressElement from "./ProgressElement";
 import Form, { defaultForm } from "../../types/types";
-
-const labels = [
-    'Datenschutz',
-    'Persönliches',
-    'Wohnort',
-    'Unter 18?',
-    'Ausbildung',
-    'Schulbesuch',
-    'Geschafft!'
-]
+import { ViewInterface } from "../../types/views";
+import formConstruct from "../../types/views";
 
 const LogginBody: React.FC = () => {
 
@@ -23,15 +15,20 @@ const LogginBody: React.FC = () => {
     const [areRequiredChecked, setAreRequiredChecked ] = useState<boolean>(false)
     const [isWarningOn, setIsWarningOn] = useState<boolean>(false)
     const [form, setForm] = useState<Form>(defaultForm)
+    const [view, setView] = useState<ViewInterface>(formConstruct[0])
 
     const handleOnClick = () => {
         setProgressIndex((index) => index + 1)
         setIsWarningOn(false)
     }
-
+    
     const updateForm = (obj: object) => {
         setForm((prev) => ({...prev, ...obj}));
     };
+
+    useEffect(()=>{
+        setView(formConstruct[progressIndex])
+    },[progressIndex])
 
     return (
         <CustomBox>
@@ -48,21 +45,22 @@ const LogginBody: React.FC = () => {
                     color: Theme['darkGray'],
                     fontSize: '1.5rem',
                 }}
-                >{labels[progressIndex]}</LabelCustom>
+                >{view.formSection}</LabelCustom>
             </Box>
             <LogginForm
                 form={form}
+                view={view}
                 updateForm={updateForm}
-                progressIndex={progressIndex}
-                setAreRequiredChecked={setAreRequiredChecked}
                 isWarningOn={isWarningOn}
-                arraySize={labels.length}
+                progressIndex={progressIndex}
+                arraySize={formConstruct.length}
+                setAreRequiredChecked={setAreRequiredChecked}
             />
             <ProgressElement
                 setIsWarningOn={setIsWarningOn}
                 areRequiredChecked={areRequiredChecked}
                 progressIndex={progressIndex}
-                arraySize={labels.length}
+                arraySize={formConstruct.length}
                 onClick={handleOnClick}
             />
             <Button onClick={()=>{console.log(form)}}>Test</Button>
@@ -78,7 +76,7 @@ const CustomBox = styled(Box)({
     padding: '10px',
     paddingLeft: '45px',
     paddingRight: '45px',
-    overflow: 'scroll',
+    overflow: 'auto',
     justifyContent: "start",
     alignItems: 'center',
     backgroundColor: Theme['white'],

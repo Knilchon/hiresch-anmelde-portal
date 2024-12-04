@@ -184,7 +184,12 @@ const FormUnit: React.FC<IFormUnitProps> = ({label, type, isWarningOn, form, isR
                 }}
                 >
                     <FormControl>
-                        <FormGroup>
+                        <FormGroup
+                        sx={{
+                            display:'flex',
+                            flexFlow: 'row'
+                        }}
+                        >
                             {checkOptions?.map((option) => (
                             <FormControlLabel
                             key={option.toString()}

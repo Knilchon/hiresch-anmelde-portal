@@ -124,11 +124,4 @@ export interface Field{
     checkboxDescript?: string | JSX.Element,
 }
 
-export interface ILogginFormProps {
-    form: Form,
-    isWarningOn: boolean,
-    updateForm: (obj:object) => void,
-    setAreRequiredChecked: React.Dispatch<React.SetStateAction<boolean>>
-}
-
 export type Enum = Apprenticship[] | Relation[] | Course[] | EducationLevel[] | Weekday[] | Gender[]

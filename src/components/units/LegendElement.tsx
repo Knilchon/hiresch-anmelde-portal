@@ -1,17 +1,7 @@
 import React from "react";
 import {Box,  styled } from "@mui/system";
-import { Theme } from "../../utils";
 import LegendItem from "./LegendItem";
-
-const labels = [
-    'Datenschutz',
-    'Persönliches',
-    'Wohnort',
-    'Unter 18?',
-    'Ausbildung',
-    'Schulbesuch',
-    'Bestätigung'
-]
+import formConstruct from "../../types/views";
 
 interface ILegendElementProps{
     progressIndex: number,
@@ -22,10 +12,10 @@ interface ILegendElementProps{
 const LegendElement: React.FC<ILegendElementProps> = (props) => {
     return(
     <CustomBox>
-        {labels.map((label,index) => (
+        {formConstruct.map((section,index) => (
         <LegendItem 
         key={index}
-        label={label} 
+        label={section.legendTitle} 
         index={index}
         {...props}
         />))}
