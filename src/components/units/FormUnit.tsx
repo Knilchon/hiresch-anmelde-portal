@@ -1,13 +1,6 @@
-import React, { ReactHTMLElement } from "react";
+import React from "react";
 import {
     Box,
-    Checkbox,
-    FormControl,
-    FormControlLabel,
-    FormGroup,
-    Radio,
-    RadioGroup,
-    TextField,
     Typography,
 } from "@mui/material";
 import styled from "styled-components";
@@ -15,7 +8,6 @@ import Form, {
     Apprenticship,
     Course,
     EducationLevel,
-    Enum,
     FormUnitType,
     Gender,
     Relation,
@@ -31,12 +23,10 @@ import OptionFields from "./OptionFieldsUnit";
 interface IFormUnitProps {
     label: string;
     type: FormUnitType;
-    checkOptions?: Enum;
     descriptText?: string;
     form: Form;
     isRequired: boolean;
     isWarningOn: boolean;
-    checkboxDescript?: string | JSX.Element;
     formDataUnit: keyof Form;
     updateForm: (obj: object) => void;
 }
@@ -51,8 +41,6 @@ const FormUnit: React.FC<IFormUnitProps> = (props) => {
         isRequired,
         descriptText,
         formDataUnit,
-        checkOptions,
-        checkboxDescript,
         updateForm,
     } = props
 

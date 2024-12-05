@@ -1,5 +1,5 @@
 import React from "react";
-import Form, { Enum, Gender, Relation, Weekday } from "../../types/types";
+import Form from "../../types/types";
 import { TextField } from "@mui/material";
 import { Theme } from "../../utils";
 

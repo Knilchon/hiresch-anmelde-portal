@@ -31,7 +31,7 @@ const FileUploadUnit: React.FC<IFileUploadUnitProps> = ({
   useEffect(() => {
     const file: any = form[formDataUnit];
     setFileName(file?.name || "Datei hinzufügen");
-  }, [form]);
+  }, [form,formDataUnit]);
 
   return (
     <Box
