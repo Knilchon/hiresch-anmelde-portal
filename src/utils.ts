@@ -1,5 +1,3 @@
-import { Weekday } from "./types/types";
-
 export enum Theme {
     'gray'= '#787878',
     'white'= '#FFFFFF',

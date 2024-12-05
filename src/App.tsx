@@ -3,6 +3,7 @@ import LogginWindow from './components/LogginWindow';
 import { Box, styled } from '@mui/material';
 
 const App: React.FC = () => {
+  console.log(process.env.IS_MAINTENANCE)
   return (
     <AppBox className="App">
       <LogginWindow/>

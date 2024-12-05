@@ -27,7 +27,7 @@ const LegendItem: React.FC<ILegendItemProps> = ({label, index, progressIndex, se
     isClickable={index <= progressIndex-1}
     >
         <Typography sx={{
-            fontSize: '0.7rem'
+            fontSize: '0.7rem',
         }}
         >{label}</Typography>
     </CustomBox>)
@@ -43,7 +43,7 @@ interface CustomeBoxProps {
 const CustomBox = styled(Box)<CustomeBoxProps>((props) =>({
     display: "flex",
     height: '20px',
-    width: '100px',
+    width: '110px',
     margin: '1px',
     borderRadius: '2px',
     justifyContent: "center",

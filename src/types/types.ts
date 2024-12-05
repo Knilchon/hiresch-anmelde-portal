@@ -7,6 +7,7 @@ interface Form {
     birthPlace: string,
     birthCountry: string,
     nationality: string,
+    nativeLanguageParents: string,
     smartPhoneNumber: string,
     phoneNumber: string,
     emailAddress: string,
@@ -43,7 +44,8 @@ interface Form {
     graduationYear: string,
     finishedCourse?: Course,
     workEducation: string,
-    schoolRelation?: Relation
+    schoolRelation?: Relation,
+    apprenticeshipContract?: File
 } 
 export default Form;
 
@@ -68,6 +70,7 @@ export const defaultForm: Form = {
     birthPlace: '',
     birthCountry: '',
     nationality: '',
+    nativeLanguageParents: '',
     smartPhoneNumber: '',
     phoneNumber: '',
     emailAddress: '',
@@ -105,13 +108,15 @@ export const defaultForm: Form = {
     finishedCourse: undefined, 
     workEducation: '',
     schoolRelation: undefined,
+    apprenticeshipContract: undefined
 };
   
 export enum FormUnitType {
     'CheckBox',
     'InputField',
     'OptionFields',
-    'ArraySelect'
+    'ArraySelect',
+    'FileUpload',
 }
 
 export interface Field{

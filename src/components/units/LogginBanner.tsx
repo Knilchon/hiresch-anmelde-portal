@@ -43,7 +43,6 @@ const CustomBox = styled(Box)({
 });
 
 const CustomImg = styled('img')({
-    // display: 'inline',
     height: '100%',
     width: 'auto',
     marginBottom: '2px'

@@ -83,6 +83,12 @@ const formConstruct: ViewInterface[] = [
                 type: FormUnitType.InputField,
             },
             {
+                label:'Herkunftssprache der Eltern',
+                formDataUnit: 'nativeLanguageParents',
+                isRequired: false,
+                type: FormUnitType.InputField,
+            },
+            {
                 label:'Handynummer',
                 formDataUnit: 'smartPhoneNumber',
                 isRequired: false,
@@ -387,6 +393,19 @@ const formConstruct: ViewInterface[] = [
                     'Ich war bereits Schüler*in der Rahel-Hirsch-Schule',
                     'Ich bin aktuell Schüler*in der Rahel-Hirsch-Schule'
                 ]
+            },
+        ]
+    },
+    {
+        formSection: 'Ausbildungsvertrag ',
+        legendTitle: 'Ausbildungsvertrag ',
+        underLabel: 'Ausbildungsvertrag  einfügen',
+        fields: [
+            {
+                label:'Ausbildungsvertrag',
+                formDataUnit: 'apprenticeshipContract',
+                isRequired: true,
+                type: FormUnitType.FileUpload,
             },
         ]
     },

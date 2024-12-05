@@ -60,6 +60,7 @@ const LogginBody: React.FC = () => {
                 arraySize={formConstruct.length}
                 onClick={handleOnClick}
             />
+            <Button onClick={() => {console.log(form)}}>TEST</Button>
         </CustomBox>
     )
 }
