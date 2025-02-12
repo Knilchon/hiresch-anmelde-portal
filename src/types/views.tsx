@@ -90,7 +90,7 @@ const formConstruct: ViewInterface[] = [
             },
             {
                 label:'Handynummer',
-                formDataUnit: 'smartPhoneNumber',
+                formDataUnit: 'smartphoneNumber',
                 isRequired: false,
                 type: FormUnitType.InputField,
                 descriptText: 'Bitte geben Sie in jedem Fall eine Handy- oder Telefonnummer an.'
@@ -111,7 +111,7 @@ const formConstruct: ViewInterface[] = [
             },
             {
                 label:'Zustimmung zur Verwendung von Fotos',
-                formDataUnit: 'photoPermision',
+                formDataUnit: 'photoPermission',
                 isRequired: false,
                 type: FormUnitType.CheckBox,
                 descriptText: 'Ich erteile hiermit der Rahel-Hirsch-Schule die jederzeit widerruflihe Erlaubnis, für schulische Zwecke (z.B. auf der Webseite der Schule, in Schulbroschüren, etc.) Fotos oder Abbildungen, auf denen ich zu erkennen bin, zu verwenden.',
@@ -176,13 +176,13 @@ const formConstruct: ViewInterface[] = [
         fields: [
             {
                 label:'Vorname Mutter',
-                formDataUnit: 'motherfirstName',
+                formDataUnit: 'motherFirstName',
                 isRequired: false,
                 type: FormUnitType.InputField,
             },
             {
                 label:'Nachname Mutter',
-                formDataUnit: 'motherlastName',
+                formDataUnit: 'motherLastName',
                 isRequired: false,
                 type: FormUnitType.InputField,
             },
@@ -195,13 +195,13 @@ const formConstruct: ViewInterface[] = [
             },
             {
                 label:'Vorname Vater',
-                formDataUnit: 'fatherfirstName',
+                formDataUnit: 'fatherFirstName',
                 isRequired: false,
                 type: FormUnitType.InputField,
             },
             {
                 label:'Nachname Vater',
-                formDataUnit: 'fatherlastName',
+                formDataUnit: 'fatherLastName',
                 isRequired: false,
                 type: FormUnitType.InputField,
             },
@@ -221,14 +221,14 @@ const formConstruct: ViewInterface[] = [
             },
             {
                 label:'Vorname Erziehungsberechtigter',
-                formDataUnit: 'guardianfirstName',
+                formDataUnit: 'guardianFirstName',
                 isRequired: false,
                 type: FormUnitType.InputField,
                 descriptText: 'Wenn nicht die Eltern.',
             },
             {
                 label:'Nachname Erziehungsberechtigter',
-                formDataUnit: 'guardianlastName',
+                formDataUnit: 'guardianLastName',
                 isRequired: false,
                 type: FormUnitType.InputField,
                 descriptText: 'Wenn nicht die Eltern.',
@@ -249,7 +249,7 @@ const formConstruct: ViewInterface[] = [
         fields: [
             {
                 label:'Ich melde mich an zur Aubildung als',
-                formDataUnit: 'apprenticship',
+                formDataUnit: 'apprenticeship',
                 isRequired: true,
                 type: FormUnitType.OptionFields,
                 checkOptions: 
@@ -307,11 +307,6 @@ const formConstruct: ViewInterface[] = [
                 type: FormUnitType.ArraySelect,
                 descriptText: 'Wählen Sie bitte ZWEI TAGE aus, an denen die Praxis Sie für die Berufsschule bevorzugt freistellen möchte.',
                 checkOptions: [
-                    'Montag',
-                    'Dienstag',
-                    'Mittwoch',
-                    'Donnerstag',
-                    'Freitag'
                 ]
             },
             {
@@ -321,11 +316,6 @@ const formConstruct: ViewInterface[] = [
                 type: FormUnitType.ArraySelect,
                 descriptText: 'Wählen Sie bitte ZWEI TAGE aus, an denen die Praxis Sie für die Berufsschule bevorzugt freistellen möchte.',
                 checkOptions: [
-                    'Montag',
-                    'Dienstag',
-                    'Mittwoch',
-                    'Donnerstag',
-                    'Freitag'
                 ]
             },
         ]

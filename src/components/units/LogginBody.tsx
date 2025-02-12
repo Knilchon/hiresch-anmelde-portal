@@ -8,6 +8,7 @@ import ProgressElement from "./ProgressElement";
 import Form, { defaultForm } from "../../types/types";
 import { ViewInterface } from "../../types/views";
 import formConstruct from "../../types/views";
+import { Api } from "../../Api";
 
 const LogginBody: React.FC = () => {
 
@@ -16,6 +17,8 @@ const LogginBody: React.FC = () => {
     const [isWarningOn, setIsWarningOn] = useState<boolean>(false)
     const [form, setForm] = useState<Form>(defaultForm)
     const [view, setView] = useState<ViewInterface>(formConstruct[0])
+
+    const api = Api.getInstance()
 
     const handleOnClick = () => {
         setProgressIndex((index) => index + 1)
@@ -60,7 +63,7 @@ const LogginBody: React.FC = () => {
                 arraySize={formConstruct.length}
                 onClick={handleOnClick}
             />
-            <Button onClick={() => {console.log(form)}}>TEST</Button>
+            <Button onClick={() => {api.submitStudentForm(form)}}>TEST</Button>
         </CustomBox>
     )
 }

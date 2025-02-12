@@ -8,28 +8,35 @@ interface Form {
     birthCountry: string,
     nationality: string,
     nativeLanguageParents: string,
-    smartPhoneNumber: string,
+    smartphoneNumber: string,
     phoneNumber: string,
     emailAddress: string,
-    photoPermision: boolean,
+
+    photoPermission: boolean,
     postalCode: string,
     place: string,
     street: string,
     houseNumber: string,
     addressExtension: string,
+
     emergancyContact: string,
     emergancyContactNumber: string,
-    motherfirstName: string,
-    motherlastName: string,
+
+    motherFirstName: string,
+    motherLastName: string,
     motherPhoneNumber: string,
-    fatherfirstName: string,
-    fatherlastName: string,
+
+    fatherFirstName: string,
+    fatherLastName: string,
     fatherPhoneNumber: string,
+
     parentsAddress: string,
-    guardianfirstName: string,
-    guardianlastName: string,
+
+    guardianFirstName: string,
+    guardianLastName: string,
     guardianPhoneNumber: string,
-    apprenticship?: Apprenticship
+
+    apprenticeship?: Apprenticship
     firmName: string,
     firmStreet: string,
     firmHouseNumber: string,
@@ -37,12 +44,14 @@ interface Form {
     firmPhoneNumber: string,
     firmFax: string,
     firmEmailAddress: string,
-    schoolDaysFirst: Weekday[],
-    schoolDaysSecond: Weekday[],
+
+    schoolDaysFirst?: Weekday,
+    schoolDaysSecond?: Weekday,
     educationLevel?: EducationLevel,
     lastSchool: string,
-    graduationYear: string,
     finishedCourse?: Course,
+    graduationYear: string,
+    
     workEducation: string,
     schoolRelation?: Relation,
     apprenticeshipContract?: File
@@ -51,7 +60,7 @@ export default Form;
 
 export type Gender = 'männlich' | 'weiblich' | 'divers'
 
-export type Weekday = 'Montag' | 'Dienstag' | 'Mittwoch' | 'Donnerstag' | 'Freitag'
+export type Weekday = 'Mo/Di' | 'Mo/Mi' | 'Mo/Do' | 'Mo/Fr' | 'Di/Mi' | 'Di/Do' | 'Di/Fr' | 'Mi/Do' | 'Mi/Fr' | 'Do/Fr'
 
 export type EducationLevel = 'Berufsbildungsreife' | 'Erweiterte Berufsbildungsreife' | 'Mittlerer Schulabschluss' | 'Abitur' | 'Fachabitur' | 'Fachabitur schriftl. teil' | 'Ohne'
 
@@ -71,10 +80,10 @@ export const defaultForm: Form = {
     birthCountry: '',
     nationality: '',
     nativeLanguageParents: '',
-    smartPhoneNumber: '',
+    smartphoneNumber: '',
     phoneNumber: '',
     emailAddress: '',
-    photoPermision: false,
+    photoPermission: false,
     postalCode: '',
     place: '',
     street: '',
@@ -82,17 +91,17 @@ export const defaultForm: Form = {
     addressExtension: '',
     emergancyContact: '',
     emergancyContactNumber: '',
-    motherfirstName: '',
-    motherlastName: '',
+    motherFirstName: '',
+    motherLastName: '',
     motherPhoneNumber: '',
-    fatherfirstName: '',
-    fatherlastName: '',
+    fatherFirstName: '',
+    fatherLastName: '',
     fatherPhoneNumber: '',
     parentsAddress: '',
-    guardianfirstName: '',
-    guardianlastName: '',
+    guardianFirstName: '',
+    guardianLastName: '',
     guardianPhoneNumber: '',
-    apprenticship: undefined,
+    apprenticeship: undefined,
     firmName: '',
     firmStreet: '',
     firmHouseNumber: '',
@@ -100,8 +109,8 @@ export const defaultForm: Form = {
     firmPhoneNumber: '',
     firmFax: '',
     firmEmailAddress: '',
-    schoolDaysFirst: [],
-    schoolDaysSecond: [],
+    schoolDaysFirst: undefined,
+    schoolDaysSecond: undefined,
     educationLevel: undefined, 
     lastSchool: '',
     graduationYear: '',
