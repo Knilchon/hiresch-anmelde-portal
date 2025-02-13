@@ -16,7 +16,7 @@ const LogginBody: React.FC = () => {
     const [areRequiredChecked, setAreRequiredChecked ] = useState<boolean>(false)
     const [isWarningOn, setIsWarningOn] = useState<boolean>(false)
     const [form, setForm] = useState<Form>(defaultForm)
-    const [view, setView] = useState<ViewInterface>(formConstruct[0])
+    const [view, setView] = useState<ViewInterface>(formConstruct()[0])
 
     const api = Api.getInstance()
 
@@ -30,7 +30,10 @@ const LogginBody: React.FC = () => {
     };
 
     useEffect(()=>{
-        setView(formConstruct[progressIndex])
+        setView(formConstruct()[progressIndex])
+        if(progressIndex === formConstruct().length-1){
+            api.submitStudentForm(form)
+        }
     },[progressIndex])
 
     return (
@@ -53,17 +56,17 @@ const LogginBody: React.FC = () => {
                 updateForm={updateForm}
                 isWarningOn={isWarningOn}
                 progressIndex={progressIndex}
-                arraySize={formConstruct.length}
+                arraySize={formConstruct().length}
                 setAreRequiredChecked={setAreRequiredChecked}
             />
             <ProgressElement
                 setIsWarningOn={setIsWarningOn}
                 areRequiredChecked={areRequiredChecked}
                 progressIndex={progressIndex}
-                arraySize={formConstruct.length}
+                arraySize={formConstruct().length}
                 onClick={handleOnClick}
             />
-            <Button onClick={() => {api.submitStudentForm(form)}}>TEST</Button>
+            <Button onClick={() => {console.log(form)}}>TEST</Button>
         </CustomBox>
     )
 }

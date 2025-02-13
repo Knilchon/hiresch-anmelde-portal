@@ -6,15 +6,16 @@ import { Typography } from "@mui/material";
 interface ILegendItemProps{
     label: string,
     index: number,
+    isClickable: boolean,
     progressIndex: number,
     setIsWarningOn: React.Dispatch<React.SetStateAction<boolean>>,
     setProgressIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
-const LegendItem: React.FC<ILegendItemProps> = ({label, index, progressIndex, setIsWarningOn, setProgressIndex}) => {
+const LegendItem: React.FC<ILegendItemProps> = ({label, index, progressIndex, isClickable, setIsWarningOn, setProgressIndex}) => {
 
     const handleOnClick = () => {
-        if(index <= progressIndex-1){
+        if(isClickable){
             setProgressIndex(index)
             setIsWarningOn(false)
         }
@@ -24,7 +25,7 @@ const LegendItem: React.FC<ILegendItemProps> = ({label, index, progressIndex, se
     <CustomBox 
     onClick={handleOnClick}
     isActivated={index <= progressIndex}
-    isClickable={index <= progressIndex-1}
+    isClickable={isClickable}
     >
         <Typography sx={{
             fontSize: '0.7rem',

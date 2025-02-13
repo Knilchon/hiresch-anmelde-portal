@@ -12,10 +12,11 @@ interface ILegendElementProps{
 const LegendElement: React.FC<ILegendElementProps> = (props) => {
     return(
     <CustomBox>
-        {formConstruct.map((section,index) => (
+        {formConstruct().map((section,index) => (
         <LegendItem 
         key={index}
         label={section.legendTitle} 
+        isClickable={index <= props.progressIndex-1 && props.progressIndex !== formConstruct().length-1}
         index={index}
         {...props}
         />))}

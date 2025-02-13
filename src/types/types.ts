@@ -19,8 +19,8 @@ interface Form {
     houseNumber: string,
     addressExtension: string,
 
-    emergancyContact: string,
-    emergancyContactNumber: string,
+    emergencyContact: string,
+    emergencyContactNumber: string,
 
     motherFirstName: string,
     motherLastName: string,
@@ -54,7 +54,7 @@ interface Form {
     
     workEducation: string,
     schoolRelation?: Relation,
-    apprenticeshipContract?: File
+    apprenticeshipContract?: File | string
 } 
 export default Form;
 
@@ -89,8 +89,8 @@ export const defaultForm: Form = {
     street: '',
     houseNumber: '',
     addressExtension: '',
-    emergancyContact: '',
-    emergancyContactNumber: '',
+    emergencyContact: '',
+    emergencyContactNumber: '',
     motherFirstName: '',
     motherLastName: '',
     motherPhoneNumber: '',

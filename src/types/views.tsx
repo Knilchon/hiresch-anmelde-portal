@@ -1,7 +1,8 @@
 import React from "react";
-import { Field, FormUnitType } from "./types"
+import { Field, FormUnitType, Weekday } from "./types"
 import DatenschutzText from "../components/units/DatenschutzText";
 import BestaetigungText from "../components/units/BestaetigungText";
+import { Api } from "../Api";
 
 export interface ViewInterface{
     preText?: JSX.Element,
@@ -12,7 +13,11 @@ export interface ViewInterface{
     fields: Field[]
 }
 
-const formConstruct: ViewInterface[] = [
+const api = Api.getInstance()
+var weekdays: Weekday[]
+api.getWeekendCombos().then((data) => weekdays = data)
+
+const formConstruct = (): ViewInterface[] => ([
     {
         formSection: 'Datenschutz',
         legendTitle: 'Datenschutz',
@@ -157,13 +162,13 @@ const formConstruct: ViewInterface[] = [
             },
             {
                 label:'Wer soll im Notfall verständigt Werden?',
-                formDataUnit: 'emergancyContact',
+                formDataUnit: 'emergencyContact',
                 isRequired: false,
                 type: FormUnitType.InputField,
             },
             {
                 label:'Telefon von Notfallkontakt',
-                formDataUnit: 'emergancyContactNumber',
+                formDataUnit: 'emergencyContactNumber',
                 isRequired: false,
                 type: FormUnitType.InputField,
             },
@@ -304,19 +309,17 @@ const formConstruct: ViewInterface[] = [
                 label:'Schultagewunsch 1.Wahl',
                 formDataUnit: 'schoolDaysFirst',
                 isRequired: false,
-                type: FormUnitType.ArraySelect,
+                type: FormUnitType.OptionFields,
                 descriptText: 'Wählen Sie bitte ZWEI TAGE aus, an denen die Praxis Sie für die Berufsschule bevorzugt freistellen möchte.',
-                checkOptions: [
-                ]
+                checkOptions: weekdays
             },
             {
                 label:'Schultagewunsch 2.Wahl',
                 formDataUnit: 'schoolDaysSecond',
                 isRequired: false,
-                type: FormUnitType.ArraySelect,
+                type: FormUnitType.OptionFields,
                 descriptText: 'Wählen Sie bitte ZWEI TAGE aus, an denen die Praxis Sie für die Berufsschule bevorzugt freistellen möchte.',
-                checkOptions: [
-                ]
+                checkOptions: weekdays
             },
         ]
     },
@@ -406,5 +409,6 @@ const formConstruct: ViewInterface[] = [
         postText: BestaetigungText,
         fields: []
     },
-]
+])
+
 export default formConstruct;
